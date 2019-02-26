@@ -1,8 +1,8 @@
-## Development
+# Pointers
 understanding pointers and dereference operator in c
 
-# CS50 Library for C
+## CS50 Library for C
 
 [![Build Status](https://travis-ci.org/cs50/libcs50.svg?branch=master)](https://travis-ci.org/cs50/libcs50)
 
-attached zip file is the cs50.h header file
+attached zip file contain <cs50.h> header file
