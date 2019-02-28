@@ -1,8 +1,9 @@
 //include all necessary file headers.
 #include <stdio.h>
 #include <stdlib.h>
-#include <cs50.h>
 #include <string.h>
+
+typedef char* string;
 
 //declare snap function.
 int snap(int *x, int *y);
@@ -13,7 +14,9 @@ int main(void)
     int y;
 
     //get a string from user in which  *name is a pointer to its first character.
-    char *name = get_string("Your name: ");
+    char *name = malloc(sizeof(char));
+    printf("Your name: ");
+    scanf("%s", name);
 
     //create a pointer containing the address of memmory location of each integer variables.
     int *xloc = &x;
@@ -33,10 +36,19 @@ int main(void)
     printf("new x = %i : new y = %i\n", x,y);
 
     //iterate through each character to print out the name.
-    printf("Your name is: ");
+    printf("Your name is: \n");
     for (int i = 0; i < strlen(name); i++)
     {
-        printf("%c", name[i]);
+        printf("%c : ", name[i]);
+        printf("%s : %i\n", &name[i], i);
+        string stop = "hi.";
+        if (name[i] == stop[2])
+        {
+            if (i == (strlen(name)-1))
+            {
+                printf("%s", stop);
+            }
+        }
     }
     printf("\n");
 }
