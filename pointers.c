@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Define custom data type
 typedef char* string;
 
 //declare snap function.
@@ -23,11 +24,13 @@ int main(void)
     int *yloc = &y;
 
     //using dereference operator to change the values of each integer variables.
-    *xloc = 34;
-    *yloc = 123;
+    printf("value x: ");
+    scanf("%i", &x);
+    printf("value y: ");
+    scanf("%d", &y);
 
     //print out the values of x and y.
-    printf("x = %i : y = %i\n", x,y);
+    printf("\nYou input the following values:\nx = %i : y = %i\n", x,y);
 
     //call snap function to swap the value of x and y.
     snap(&x, &y);
@@ -36,26 +39,28 @@ int main(void)
     printf("new x = %i : new y = %i\n", x,y);
 
     //iterate through each character to print out the name.
-    printf("Your name is: \n");
+    printf("Thank you ");
     for (int i = 0; i < strlen(name); i++)
     {
-        printf("%c : ", name[i]);
-        printf("%s : %i\n", &name[i], i);
-        string stop = "hi.";
-        if (name[i] == stop[2])
+        printf("%c", name[i]);
+
+        //add a fullstop to the end of the name if user doesn't
+        string stop = "xy.";
+        if (name[i] != stop[2])
         {
             if (i == (strlen(name)-1))
             {
-                printf("%s", stop);
+                printf("%c\n", stop[2]);
             }
         }
     }
-    printf("\n");
+    printf("Goodbye...\n");
 }
 
 //snap function.
 int snap(int *x, int *y)
 {
+    printf("\nswaping the value of x & y...\n\n");
     int temp = *x;
     *x = *y;
     *y = temp;
